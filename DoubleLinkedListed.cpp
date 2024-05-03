@@ -137,7 +137,7 @@ void deleteNode()
 
 bool listEmpty()
 {
-    return (START == NULL)
+    return (START == NULL);
 }
 
 void traverse()
@@ -158,7 +158,7 @@ void traverse()
 
 void revtraverse()
 {
-    if (listempty())
+    if (listEmpty())
         cout << "\nList is empty" << endl;
     else 
     {
@@ -169,7 +169,7 @@ void revtraverse()
 
         while (currentNode != NULL)
         {
-            cout << currentNode->noMHs << " " << currentNode->name << endl;
+            cout << currentNode->noMhs << " " << currentNode->name << endl;
             currentNode = currentNode->prev;
         }
     }
@@ -185,5 +185,14 @@ void searchData()
     prev = curr = NULL;
     cout << "\nEnter the roll numeber of student whose record you want to search: ";
     int num;
+    cin >> num;
+    if (search(num, &prev, &curr) == false)
+        cout << "\nRecord not found" << endl;
+    else
+    {
+        cout << "\nRecord found" << endl;
+        cout << "\nRoll number: " << curr->noMhs << endl;
+        cout << "\nName: " << curr->name << endl;
+    }
 }
 
